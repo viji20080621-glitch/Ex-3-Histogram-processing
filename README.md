@@ -67,12 +67,109 @@ Display original color image, histogram, enhanced image, and enhanced histogram 
 
 # Grayscale Histogram Equalization
 ```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
+# Read original color image
+img = cv2.imread("sea.jpg")
+
+if img is None:
+    print("Image not found! Check the image filename.")
+else:
+    # Convert BGR to RGB
+    rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+    # Convert to grayscale
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+
+    # Histogram equalization
+    equalized = cv2.equalizeHist(gray)
+
+    plt.figure(figsize=(12, 10))
+
+    # Original Color Image
+    plt.subplot(3, 2, 1)
+    plt.imshow(rgb)
+    plt.title("Original Color Image")
+    plt.axis("off")
+
+    # Original Grayscale Image
+    plt.subplot(3, 2, 2)
+    plt.imshow(gray, cmap='gray')
+    plt.title("Original Grayscale Image")
+    plt.axis("off")
+
+    # Original Histogram
+    plt.subplot(3, 2, 3)
+    plt.hist(gray.ravel(), bins=256, range=[0, 256], color='black')
+    plt.title("Original Histogram")
+    plt.xlabel("Pixel Intensity")
+    plt.ylabel("Frequency")
+
+    # Equalized Image
+    plt.subplot(3, 2, 4)
+    plt.imshow(equalized, cmap='gray')
+    plt.title("Equalized Image")
+    plt.axis("off")
+
+    # Equalized Histogram
+    plt.subplot(3, 2, 5)
+    plt.hist(equalized.ravel(), bins=256, range=[0, 256], color='black')
+    plt.title("Equalized Histogram")
+    plt.xlabel("Pixel Intensity")
+    plt.ylabel("Frequency")
+
+    plt.tight_layout()
+    plt.show()
 ```
 
 # Color Image Histogram Equalization
 ```
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
 
+img = cv2.imread("sea.jpg")
+
+if img is None:
+    print("Image not found!")
+else:
+    rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+
+    R, G, B = cv2.split(rgb)
+
+    plt.figure(figsize=(12, 10))
+
+    plt.subplot(3, 2, 1)
+    plt.imshow(R, cmap='Reds')
+    plt.title("Red Channel")
+    plt.axis("off")
+
+    plt.subplot(3, 2, 2)
+    plt.hist(R.ravel(), bins=256, range=[0, 256], color='red')
+    plt.title("Red Histogram")
+
+    plt.subplot(3, 2, 3)
+    plt.imshow(G, cmap='Greens')
+    plt.title("Green Channel")
+    plt.axis("off")
+
+    plt.subplot(3, 2, 4)
+    plt.hist(G.ravel(), bins=256, range=[0, 256], color='green')
+    plt.title("Green Histogram")
+
+    plt.subplot(3, 2, 5)
+    plt.imshow(B, cmap='Blues')
+    plt.title("Blue Channel")
+    plt.axis("off")
+
+    plt.subplot(3, 2, 6)
+    plt.hist(B.ravel(), bins=256, range=[0, 256], color='blue')
+    plt.title("Blue Histogram")
+
+    plt.tight_layout()
+    plt.show()
 ```
 ##  Output
 
