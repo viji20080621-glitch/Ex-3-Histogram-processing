@@ -83,7 +83,7 @@ Display original color image, histogram, enhanced image, and enhanced histogram 
 - Enhanced image after histogram equalization is displayed  
 - Histogram of enhanced grayscale image shows improved contrast
 
-
+<img width="863" height="721" alt="Screenshot 2026-10-30 184959" src="https://github.com/user-attachments/assets/872f2f3e-d154-4002-be36-671df72fc296" />
 
 
 ### Color Image Histogram Equalization
@@ -93,6 +93,7 @@ Display original color image, histogram, enhanced image, and enhanced histogram 
 - Enhanced image after HSV-based equalization is displayed  
 - Histogram of enhanced image shows better intensity distribution  
 
+<img width="785" height="728" alt="Screenshot 2026-10-30 185134" src="https://github.com/user-attachments/assets/ee6b3d84-ad08-420f-8e2e-cc3f2f69c01f" />
 
 ## Result
 
